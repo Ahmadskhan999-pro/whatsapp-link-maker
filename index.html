@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhatsApp Link Maker | Free wa.me Link and QR Generator</title>
+<meta name="description" content="Free WhatsApp link maker. Create a wa.me link and QR code that opens a chat with your number and a ready message. No signup, works on any phone.">
+<link rel="canonical" href="https://Ahmadskhan999-pro.github.io/whatsapp-link-maker">
+<meta property="og:title" content="WhatsApp Link Maker">
+<meta property="og:description" content="Create a WhatsApp chat link and QR code for your business in seconds. Free, no signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://Ahmadskhan999-pro.github.io/whatsapp-link-maker">
+<meta name="theme-color" content="#16A34A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2316A34A'/%3E%3Cpath d='M30 68 L36 54 A22 20 0 1 1 44 60 Z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F7F4; --card:#FFFFFF; --text:#16161D; --muted:#6B7280;
+  --accent:#16A34A; --accent-soft:#EAF7EE; --border:#E5E7EB; --radius:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0F0F14; --card:#17171F; --text:#EDEDF2; --muted:#9CA3AF;
+    --accent:#4ADE80; --accent-soft:rgba(74,222,128,0.12); --border:#262631;
+  }
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Inter',system-ui,sans-serif; font-size:16px; line-height:1.6;
+  padding:24px 16px 40px;
+}
+.wrap{max-width:660px; margin:0 auto;}
+.noscript-box{text-align:center; padding:12px; background:#FEF2F2; color:#991B1B; border-radius:12px; margin-bottom:16px;}
+.badge{
+  display:inline-block; background:var(--accent-soft); color:var(--accent);
+  font-size:13px; font-weight:600; padding:4px 12px; border-radius:999px; margin-bottom:12px;
+}
+h1{font-family:'Space Grotesk',sans-serif; font-size:2rem; line-height:1.2; margin-bottom:8px;}
+.sub{color:var(--muted); font-size:15px;}
+h2{font-family:'Space Grotesk',sans-serif; font-size:1.05rem; margin-bottom:14px;}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:20px; margin-top:18px;
+}
+.step{font-size:14.5px; color:var(--muted); margin-bottom:8px;}
+label{display:block; font-size:13px; font-weight:600; margin-bottom:6px;}
+select,input[type=text],textarea{
+  width:100%; padding:12px 14px; font-size:16px; font-family:inherit;
+  color:var(--text); background:var(--bg); border:1px solid var(--border);
+  border-radius:12px; outline:none;
+}
+select:focus,input:focus,textarea:focus{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft);}
+textarea{min-height:90px; resize:vertical;}
+.field{margin-bottom:16px;}
+.hint{font-size:12.5px; color:var(--muted); margin-top:6px;}
+.error{font-size:13px; color:#DC2626; margin-top:6px;}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;}
+.chip{
+  font-size:13px; font-weight:500; font-family:inherit; color:var(--text);
+  background:var(--bg); border:1px solid var(--border); border-radius:999px;
+  padding:6px 12px; cursor:pointer;
+}
+.chip:hover{border-color:var(--accent); color:var(--accent);}
+.linkRow{display:flex; gap:8px;}
+.linkRow input{flex:1; word-break:break-all;}
+button{font-family:inherit; cursor:pointer;}
+.btn{
+  display:inline-block; text-align:center; font-size:15px; font-weight:600;
+  padding:12px 18px; border-radius:12px; border:1px solid var(--border);
+  background:var(--card); color:var(--text); text-decoration:none; transition:transform .12s ease;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+.btn.disabled{opacity:.45; pointer-events:none;}
+button:disabled{opacity:.45; cursor:default;}
+.btnRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+#qrWrap{display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:20px;}
+#qr{background:#FFFFFF; padding:14px; border-radius:14px; border:1px solid var(--border); min-height:60px;}
+footer{margin-top:30px; text-align:center; font-size:13.5px; color:var(--muted);}
+footer a{color:var(--accent); text-decoration:none; font-weight:600;}
+@media (max-width:480px){ h1{font-size:1.6rem;} }
+@media (prefers-reduced-motion: reduce){ .btn{transition:none;} }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <noscript><p class="noscript-box">This tool needs JavaScript turned on in your browser. Please turn it on and reload the page.</p></noscript>
+  <header>
+    <span class="badge">Free tool</span>
+    <h1>WhatsApp Link Maker</h1>
+    <p class="sub">Create a link and QR code that opens a WhatsApp chat with your number and a ready message. Perfect for Instagram bios, ads, and shop counters. Free, no signup.</p>
+  </header>
+  <section class="card" aria-label="Your details">
+    <h2>Your details</h2>
+    <div class="field">
+      <label for="country">Country</label>
+      <select id="country"></select>
+    </div>
+    <div class="field">
+      <label for="phone">WhatsApp number</label>
+      <input type="text" id="phone" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="3XX XXXXXXX">
+      <p class="hint">Type it without the first zero. Pasting a number that already includes the country code also works.</p>
+      <p class="error" id="phoneError" aria-live="polite" hidden>That number does not look right. Check the digits and try again.</p>
+    </div>
+    <div class="field">
+      <label for="msg">Message customers will send you (optional)</label>
+      <div class="chips">
+        <button type="button" class="chip" data-msg="Hello, I would like to book an appointment. What times are available?">Booking</button>
+        <button type="button" class="chip" data-msg="Hello, can you share your prices please?">Ask prices</button>
+        <button type="button" class="chip" data-msg="Hello, I want to place an order.">Order</button>
+      </div>
+      <textarea id="msg" placeholder="Hello, I would like to book an appointment."></textarea>
+    </div>
+  </section>
+  <section class="card" aria-label="Your link and QR code">
+    <h2>Your link and QR code</h2>
+    <label for="linkOut">Your link</label>
+    <div class="linkRow">
+      <input type="text" id="linkOut" readonly placeholder="Your link appears here">
+      <button type="button" class="btn" id="copyBtn" disabled>Copy</button>
+    </div>
+    <div class="btnRow">
+      <a class="btn primary disabled" id="openBtn" target="_blank" rel="noopener">Test it in WhatsApp</a>
+      <button type="button" class="btn" id="shareBtn" hidden disabled>Share</button>
+    </div>
+    <div id="qrWrap">
+      <div id="qr" aria-label="QR code for your WhatsApp link"></div>
+      <button type="button" class="btn" id="dlBtn" disabled>Download QR as PNG</button>
+      <p class="hint">The download is print quality, big enough for posters and counters.</p>
+      <p class="hint" id="qrFail" hidden>The QR part could not load right now, but your link above still works.</p>
+    </div>
+  </section>
+  <section class="card" aria-label="How to use it">
+    <h2>How to use it</h2>
+    <p class="step">1. Pick your country and type your WhatsApp number.</p>
+    <p class="step">2. Write the message you want customers to start with, or tap a ready template.</p>
+    <p class="step">3. Copy the link for your Instagram bio and ads, or download the QR code and print it for your counter.</p>
+  </section>
+  <footer>
+    Built by <a href="https://Ahmadskhan999-pro.github.io" target="_blank" rel="noopener">Ahmad Khan</a>. I build AI booking and reply agents for local businesses on WhatsApp and Instagram. <a href="https://Ahmadskhan999-pro.github.io" target="_blank" rel="noopener">Work with me</a>
+  </footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function () {
+  var countrySel = document.getElementById("country");
+  var phoneIn = document.getElementById("phone");
+  var msgIn = document.getElementById("msg");
+  var linkOut = document.getElementById("linkOut");
+  var openBtn = document.getElementById("openBtn");
+  var copyBtn = document.getElementById("copyBtn");
+  var shareBtn = document.getElementById("shareBtn");
+  var dlBtn = document.getElementById("dlBtn");
+  var qrBox = document.getElementById("qr");
+  var qrFail = document.getElementById("qrFail");
+  var phoneError = document.getElementById("phoneError");
+  var countries = [
+    ["Pakistan","92","\uD83C\uDDF5\uD83C\uDDF0"],
+    ["India","91","\uD83C\uDDEE\uD83C\uDDF3"],
+    ["United Arab Emirates","971","\uD83C\uDDE6\uD83C\uDDEA"],
+    ["Saudi Arabia","966","\uD83C\uDDF8\uD83C\uDDE6"],
+    ["United States","1","\uD83C\uDDFA\uD83C\uDDF8"],
+    ["Canada","1","\uD83C\uDDE8\uD83C\uDDE6"],
+    ["United Kingdom","44","\uD83C\uDDEC\uD83C\uDDE7"],
+    ["Bangladesh","880","\uD83C\uDDE7\uD83C\uDDE9"],
+    ["Turkey","90","\uD83C\uDDF9\uD83C\uDDF7"],
+    ["Qatar","974","\uD83C\uDDF6\uD83C\uDDE6"],
+    ["Kuwait","965","\uD83C\uDDF0\uD83C\uDDFC"],
+    ["Oman","968","\uD83C\uDDF4\uD83C\uDDF2"],
+    ["Bahrain","973","\uD83C\uDDE7\uD83C\uDDED"],
+    ["Malaysia","60","\uD83C\uDDF2\uD83C\uDDFE"],
+    ["Indonesia","62","\uD83C\uDDEE\uD83C\uDDE9"],
+    ["Germany","49","\uD83C\uDDE9\uD83C\uDDEA"],
+    ["France","33","\uD83C\uDDEB\uD83C\uDDF7"],
+    ["Italy","39","\uD83C\uDDEE\uD83C\uDDF9"],
+    ["Spain","34","\uD83C\uDDEA\uD83C\uDDF8"],
+    ["Australia","61","\uD83C\uDDE6\uD83C\uDDFA"],
+    ["South Africa","27","\uD83C\uDDFF\uD83C\uDDE6"],
+    ["Nigeria","234","\uD83C\uDDF3\uD83C\uDDEC"],
+    ["Egypt","20","\uD83C\uDDEA\uD83C\uDDEC"],
+    ["Brazil","55","\uD83C\uDDE7\uD83C\uDDF7"],
+    ["China","86","\uD83C\uDDE8\uD83C\uDDF3"]
+  ];
+  countries.forEach(function (c, i) {
+    var opt = document.createElement("option");
+    opt.value = String(i);
+    opt.textContent = c[2] + " " + c[0] + "  +" + c[1];
+    countrySel.appendChild(opt);
+  });
+  countrySel.value = "0";
+  function cleanNumber(v) {
+    return v.replace(/\D/g, "").replace(/^0+/, "");
+  }
+  function currentLink() {
+    var num = cleanNumber(phoneIn.value);
+    if (!num) { return null; }
+    var dial = countries[Number(countrySel.value)][1];
+    var full;
+    if (num.indexOf(dial) === 0 && num.length >= dial.length + 9) {
+      full = num;
+    } else {
+      full = dial + num;
+    }
+    if (full.length < 8 || full.length > 15) { return { bad: true }; }
+    var url = "https://wa.me/" + full;
+    var m = msgIn.value.trim();
+    if (m) { url += "?text=" + encodeURIComponent(m); }
+    return { url: url };
+  }
+  function setDisabled(state) {
+    copyBtn.disabled = state;
+    dlBtn.disabled = state;
+    shareBtn.disabled = state;
+    if (state) {
+      openBtn.classList.add("disabled");
+      openBtn.removeAttribute("href");
+      qrBox.innerHTML = "";
+    } else {
+      openBtn.classList.remove("disabled");
+    }
+  }
+  var qrTimer = null;
+  function update() {
+    var r = currentLink();
+    phoneError.hidden = true;
+    if (!r) {
+      linkOut.value = "";
+      setDisabled(true);
+      save();
+      return;
+    }
+    if (r.bad) {
+      linkOut.value = "";
+      phoneError.hidden = false;
+      setDisabled(true);
+      save();
+      return;
+    }
+    linkOut.value = r.url;
+    openBtn.href = r.url;
+    setDisabled(false);
+    if (window.QRCode) {
+      clearTimeout(qrTimer);
+      qrTimer = setTimeout(function () {
+        qrBox.innerHTML = "";
+        new QRCode(qrBox, {
+          text: r.url, width: 200, height: 200,
+          colorDark: "#111111", colorLight: "#FFFFFF",
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      }, 250);
+    } else {
+      dlBtn.disabled = true;
+    }
+    save();
+  }
+  function save() {
+    try {
+      localStorage.setItem("walm", JSON.stringify({
+        c: countrySel.value, p: phoneIn.value, m: msgIn.value
+      }));
+    } catch (e) {}
+  }
+  function restore() {
+    try {
+      var raw = localStorage.getItem("walm");
+      if (!raw) { return; }
+      var d = JSON.parse(raw);
+      if (d.c && countries[Number(d.c)]) { countrySel.value = d.c; }
+      if (typeof d.p === "string") { phoneIn.value = d.p; }
+      if (typeof d.m === "string") { msgIn.value = d.m; }
+    } catch (e) {}
+  }
+  function fromQuery() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var p = q.get("phone");
+      var t = q.get("text");
+      if (p) { phoneIn.value = p; }
+      if (t) { msgIn.value = t; }
+    } catch (e) {}
+  }
+  copyBtn.addEventListener("click", function () {
+    var text = linkOut.value;
+    if (!text) { return; }
+    function done() {
+      copyBtn.textContent = "Copied";
+      setTimeout(function () { copyBtn.textContent = "Copy"; }, 1500);
+    }
+    function fallback() {
+      linkOut.focus();
+      linkOut.select();
+      try { document.execCommand("copy"); } catch (e) {}
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(); done(); });
+    } else {
+      fallback(); done();
+    }
+  });
+  shareBtn.addEventListener("click", function () {
+    var url = linkOut.value;
+    if (!url || !navigator.share) { return; }
+    navigator.share({ title: "Chat with me on WhatsApp", url: url }).catch(function () {});
+  });
+  dlBtn.addEventListener("click", function () {
+    var url = linkOut.value;
+    if (!url) { return; }
+    var dataUrl = null;
+    try {
+      var tmp = document.createElement("div");
+      tmp.style.position = "fixed";
+      tmp.style.left = "-9999px";
+      document.body.appendChild(tmp);
+      new QRCode(tmp, {
+        text: url, width: 600, height: 600,
+        colorDark: "#111111", colorLight: "#FFFFFF",
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      var big = tmp.querySelector("canvas");
+      if (big) { dataUrl = big.toDataURL("image/png"); }
+      tmp.remove();
+    } catch (e) {}
+    if (!dataUrl) {
+      var canvas = qrBox.querySelector("canvas");
+      if (canvas) {
+        dataUrl = canvas.toDataURL("image/png");
+      } else {
+        var img = qrBox.querySelector("img");
+        if (img) { dataUrl = img.src; }
+      }
+    }
+    if (!dataUrl) { return; }
+    var a = document.createElement("a");
+    a.href = dataUrl;
+    a.download = "whatsapp-qr.png";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  });
+  var chips = document.querySelectorAll(".chip");
+  for (var i = 0; i < chips.length; i++) {
+    chips[i].addEventListener("click", function () {
+      msgIn.value = this.getAttribute("data-msg");
+      update();
+    });
+  }
+  linkOut.addEventListener("focus", function () { this.select(); });
+  countrySel.addEventListener("change", update);
+  phoneIn.addEventListener("input", update);
+  msgIn.addEventListener("input", update);
+  if (navigator.share) {
+    shareBtn.hidden = false;
+  }
+  if (!window.QRCode) {
+    qrFail.hidden = false;
+    dlBtn.style.display = "none";
+    qrBox.style.display = "none";
+  }
+  restore();
+  fromQuery();
+  update();
+})();
+</script>
+</body>
+</html>
