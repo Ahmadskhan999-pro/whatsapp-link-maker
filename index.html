@@ -196,7 +196,7 @@ footer a{color:var(--accent); text-decoration:none; font-weight:600;}
   }
   function currentLink() {
     var num = cleanNumber(phoneIn.value);
-    if (!num) { return null; }
+    if (!num) { return phoneIn.value.trim() ? { bad: true } : null; }
     var dial = countries[Number(countrySel.value)][1];
     var full;
     if (num.indexOf(dial) === 0 && num.length >= dial.length + 9) {
